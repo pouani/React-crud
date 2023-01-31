@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { userService } from '@/_services/user.service'
 
 const User = () => {
   // let navigate = useNavigate()
   const [users, setUsers] = useState([])
+  const flag = useRef(false)
 
   useEffect(() => {
-    userService.getAllUsers()
+    if(flag.current){
+      userService.getAllUsers()
       .then((res) => {
         console.log(res.data.Users)
         setUsers(res.data.Users)
       })
-      .catch((err) => {
-        console.log(err)
-      })
+      .catch((err) => console.log(err))
+
+    }
+    return () => flag.current = true
   }, [])
 
   // const marcel = (user_id) => {
