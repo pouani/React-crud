@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+
+import { accountService } from '@/_services/accountService'
 import './auth.css'
 
 const Login = () => {
@@ -25,7 +27,8 @@ const Login = () => {
     console.log(credentials)
     axios.post('http://127.0.0.1:8002/api/login', credentials)
         .then(res => {
-          console.log(res)
+          console.log(res.data)
+          accountService.saveToken(res.data.token)
           navigate('/admin')
         })
         .catch(err => console.log(err))
