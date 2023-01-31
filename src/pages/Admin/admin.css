@@ -1,0 +1,31 @@
+.admin{
+    display: flex;
+}
+
+.admin_sidebar{
+    flex-grow: 1;
+    border-right: 1px solid #aaa;
+    padding: 2rem 1rem;
+}
+.admin_content{
+    flex-grow: 8;
+}
+
+.admin_body{
+    padding: 1rem;
+}
+
+.header-admin{
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #aaa;
+}
+
+.sidebar-item{
+    display: flex;
+    flex-direction: column;
+}
+.item{
+    display: block;
+    padding: 1rem;
+}

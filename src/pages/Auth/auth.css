@@ -1,0 +1,10 @@
+.form-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.group{
+    margin-bottom: 1rem;
+}
