@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const User = () => {
-
   let navigate = useNavigate()
+
+  useEffect(() => {
+    console.log("useEffect")
+  }, [])
+
   const marcel = (user_id) => {
     console.log("marcel")
     navigate("../edit/"+user_id)
