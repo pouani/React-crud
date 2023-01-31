@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <div className='header-admin'>
-        Header
+        <h2>Header component</h2>
     </div>
   )
 }
