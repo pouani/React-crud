@@ -5,10 +5,11 @@ import { userService } from '@/_services/user.service'
 
 const User = () => {
   // let navigate = useNavigate()
-  const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
   //const flag = useRef(false)
 
-  const {} = useQuery('users', userService.getAllUsers)
+  const {isLoading, data} = useQuery('users', userService.getAllUsers)
+  const users = data ? data.Users : []
 
   // useEffect(() => {
   //   if(flag.current){
@@ -27,6 +28,8 @@ const User = () => {
   //   console.log("marcel")
   //   navigate("../edit/"+user_id)
   // }
+
+  if(isLoading) return <div>Loading...</div>
   return (
     <div className='user'>
         User Liste
