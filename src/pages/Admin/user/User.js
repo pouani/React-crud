@@ -1,24 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
+import { useQuery } from 'react-query'
 import { userService } from '@/_services/user.service'
 
 const User = () => {
   // let navigate = useNavigate()
   const [users, setUsers] = useState([])
-  const flag = useRef(false)
+  //const flag = useRef(false)
 
-  useEffect(() => {
-    if(flag.current){
-      userService.getAllUsers()
-      .then((res) => {
-        console.log(res.data.Users)
-        setUsers(res.data.Users)
-      })
-      .catch((err) => console.log(err))
+  const {} = useQuery('users', userService.getAllUsers)
 
-    }
-    return () => flag.current = true
-  }, [])
+  // useEffect(() => {
+  //   if(flag.current){
+  //     userService.getAllUsers()
+  //     .then((res) => {
+  //       console.log(res.data.Users)
+  //       setUsers(res.data.Users)
+  //     })
+  //     .catch((err) => console.log(err))
+
+  //   }
+  //   return () => flag.current = true
+  // }, [])
 
   // const marcel = (user_id) => {
   //   console.log("marcel")
