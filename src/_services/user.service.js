@@ -13,7 +13,12 @@ let getUser = (user_id) => {
     return Axios.get('/users/'+user_id)
 }
 
+let updateUser = (user) => {
+    return Axios.put('/users/'+user.id, user)
+}
+
 export const userService = {
     getAllUsers,
-    getUser
+    getUser,
+    updateUser
 }

@@ -41,8 +41,9 @@ const User = () => {
                 <tr>
                     <th>#</th>
                     <th>Nom</th>
-                    <th>created at</th>
+                    <th>Téléphone</th>
                     <th>Email</th>
+                    <th>created at</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,8 +51,9 @@ const User = () => {
                     <tr key={index}>
                         <td><Link to={`/admin/user/edit/${user.id}`}>{user.id}</Link></td>
                         <td>{user.name}</td>
-                        <td>{user.created_at}</td>
+                        <td>{user.telephone}</td>
                         <td>{user.email}</td>
+                        <td>{user.created_at}</td>
                     </tr>
                 ))}
             </tbody>

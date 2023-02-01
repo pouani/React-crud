@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { userService } from '../../../_services'
 
 const UserEdit = () => {
+
+  const navigate = useNavigate()
 
   const [user, setUser] = useState([])
   const flag = useRef(false)
@@ -20,6 +22,12 @@ const UserEdit = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(user)
+    userService.updateUser(user)
+            .then((res) => {
+              console.log(res)
+              navigate('../index')
+            })
+            .catch((err) => console.log(err))
   }
 
   useEffect(() => {
@@ -44,8 +52,8 @@ const UserEdit = () => {
               <input type="text" name="name" value={user.name} onChange={onChange}/>
           </div><br />
           <div className='group'>
-              <label htmlFor='phone'>Telephone</label><br />
-              <input type="text" name="phone" value={user.phone} onChange={onChange}/>
+              <label htmlFor='telephone'>Telephone</label><br />
+              <input type="text" name="telephone" value={user.telephone} onChange={onChange}/>
           </div><br />
           <div className='group'>
               <label htmlFor='email'>Email</label><br />
