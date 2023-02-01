@@ -8,3 +8,15 @@
 .group{
     margin-bottom: 1rem;
 }
+
+.form-login input{
+    border: 1px solid #ccc;
+    height: 45px;
+    padding: 0 6px;
+}
+
+.form-login button{
+    background-color: dodgerblue;
+    padding: .5em 2em; 
+    color: #fff;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { accountService } from '@/_services/accountService'
+import { accountService } from '@/_services'
 import './auth.css'
 
 const Login = () => {
