@@ -25,6 +25,16 @@ const User = () => {
     return () => flag.current = true
   }, [])
 
+  const delUser = (user_id) => {
+    console.log(user_id)
+    userService.deleteUser(user_id)
+    .then((res) => {
+      console.log(res)
+      setUsers(users.filter(user => user.id !== user_id))
+    })
+    .catch((err) => console.log(err))
+  }
+
   // const marcel = (user_id) => {
   //   console.log("marcel")
   //   navigate("../edit/"+user_id)
@@ -39,6 +49,7 @@ const User = () => {
         <table>
             <thead>
                 <tr>
+                    <th></th>
                     <th>#</th>
                     <th>Nom</th>
                     <th>Téléphone</th>
@@ -54,6 +65,7 @@ const User = () => {
                         <td>{user.telephone}</td>
                         <td>{user.email}</td>
                         <td>{user.created_at}</td>
+                        <td><button onClick={() => delUser(user.id)} className='btn bg-red-300 px-4 py2'>supprimer</button></td>
                     </tr>
                 ))}
             </tbody>
